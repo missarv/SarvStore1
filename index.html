@@ -2155,7 +2155,7 @@
         // =====================================================================
         // CLOUD SYNC CONFIG  --  paste your deployed Apps Script Web App URL
         // =====================================================================
-        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw3mEI7PlZnfFiuhOwlC1f-_knav_1EaylJ7t6_9MHbkZ5dYcp7kt3NP6jf0l7qvOzG/exec";
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxCu1153YM9XIAWB0MyACu8S6MYVd-2WOZWCIevdOtCAOw66WB0tE3gYKrDWTvtLEge/exec";
         // =====================================================================
 
         // Two independent counters — one per Entry Type
@@ -3113,8 +3113,8 @@
                             <table>
                                 <tr><td class="lbl">Outward No:</td><td><strong>${get('outRegEntryNo')}</strong></td></tr>
                                 <tr><td class="lbl">Date:</td><td>${formatInvoiceDate(get('outDate'))}</td></tr>
-
                                 <tr><td class="lbl">Nature of Dispatch:</td><td>${get('outNatureOfDispatch')}</td></tr>
+                                ${get('outGatePassNo') ? `<tr><td class="lbl">Gate Pass:</td><td>${get('outGatePassNo')}</td></tr>` : ''}
                             </table>
                         </div>
                         <div class="meta-block">
@@ -3123,7 +3123,6 @@
                                 <tr><td class="lbl">Location:</td><td>${get('outLocation')}</td></tr>
                                 <tr><td class="lbl">Target Return:</td><td>${formatInvoiceDate(get('outTargetReturnDate'))}</td></tr>
                                 <tr><td class="lbl">Transport:</td><td>${get('outTransport')}</td></tr>
-                                ${get('outGatePassNo') ? `<tr><td class="lbl">Gate Pass:</td><td>${get('outGatePassNo')}</td></tr>` : ''}
                                 ${get('outLotNo') ? `<tr><td class="lbl">Lot No.:</td><td>${get('outLotNo')}</td></tr>` : ''}
                             </table>
                         </div>
@@ -3563,6 +3562,7 @@
                                 <tr><td class="lbl">Receiving Date:</td><td>${recDate}</td></tr>
                                 <tr><td class="lbl">Supplier Name:</td><td><strong>${supplier}</strong></td></tr>
                                 <tr><td class="lbl">Party State:</td><td>${state}</td></tr>
+                                ${machineName ? `<tr style="background:#dbeafe;"><td class="lbl" style="color:#1d4ed8;font-weight:700;">Machine:</td><td style="font-weight:700;color:#1e40af;">${machineName}</td></tr>` : ''}
                             </table>
                         </div>
                         <div class="meta-block">
@@ -3572,8 +3572,6 @@
                                 <tr><td class="lbl">PO Reference:</td><td>${poNum}</td></tr>
                                 ${gatePass ? `<tr><td class="lbl">Gate Pass:</td><td>${gatePass}</td></tr>` : ''}
                                 ${lotNumber ? `<tr><td class="lbl">Lot No.:</td><td>${lotNumber}</td></tr>` : ''}
-                                ${machineName ? `<tr><td class="lbl">Machine:</td><td>${machineName}</td></tr>` : ''}
-
                             </table>
                         </div>
                     </div>
