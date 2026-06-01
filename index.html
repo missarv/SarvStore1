@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5.0, user-scalable=yes">
-    <title>SIHF-II - Store Tracker</title>
+    <title>SIHF-I - Store Tracker</title>
     <style>
         :root {
             --primary-gradient: linear-gradient(180deg, #0d5c53 0%, #083e38 100%);
@@ -1205,7 +1205,7 @@
 <body>
 
     <header>
-        <h1>SI <span>-II</span></h1>
+        <h1>SI <span>-I</span></h1>
         <div class="nav-tabs">
             <span class="nav-link active" data-target="inwardPanel">Material Inward Panel</span>
             <span class="nav-link" data-target="outwardPanel">Material Outward Panel</span>
@@ -1233,7 +1233,7 @@
 
             <div class="card">
                 <div class="autosave-tag">&#128274; Draft Protection Active</div>
-                <h2 class="panel-title">SIHF-II - STORE TRACKER</h2>
+                <h2 class="panel-title">SIHF-I - STORE TRACKER</h2>
                 <div class="panel-subtitle">INWARD CONTROL DESK</div>
 
                 <div class="grid-4">
@@ -1352,7 +1352,7 @@
 
             <div class="card">
                 <div class="autosave-tag">&#128274; Draft Protection Active</div>
-                <h2 class="panel-title">SIHF-II - OUTWARD DESK</h2>
+                <h2 class="panel-title">SIHF-I - OUTWARD DESK</h2>
                 <div class="panel-subtitle">OUTWARD / ISSUE CONTROL FRAMEWORK</div>
 
                 <div class="grid-4">
@@ -2218,7 +2218,7 @@
 
             let prefix = "", serial = 1;
             if (entryType === "INWARD") {
-                prefix = "SIHF-II/" + finYear + "/";
+                prefix = "SIHF-I/" + finYear + "/";
                 serial = NEXT_INWARD_SERIAL;
                 // ── Feature 1: Normal blue for INWARD ──
                 entryNoField.style.color       = "#0284c7";
@@ -3104,7 +3104,7 @@
                 <div class="invoice-sheet" data-copy-type="${copyTitle}">
                     <div class="sheet-type-tag">${copyTitle}</div>
                     <div class="inv-header">
-                        <h2>SIHF-II</h2>
+                        <h2>SIHF-I</h2>
                         <p style="margin:4px 0 0;font-size:13px;font-weight:900;color:#dc2626;">${entryType}</p>
                     </div>
 
@@ -3552,7 +3552,7 @@
                 <div class="invoice-sheet" data-copy-type="${copyTitle}">
                     <div class="sheet-type-tag">${copyTitle}</div>
                     <div class="inv-header">
-                        <h2>SIHF-II</h2>
+                        <h2>SIHF-I</h2>
                         <p style="margin:4px 0 0;font-size:13px;font-weight:900;color:${(entryTypeSelected==='INWARD NB')?'#15803d':(entryTypeSelected.indexOf('INWARD')!==-1?'#15803d':'#dc2626')};">${entryTypeSelected}</p>
                     </div>
 
@@ -3867,10 +3867,10 @@
 
             let prefix = "", serial = 1;
             if (entryType === "OUTWARD") {
-                prefix = "SIHF-II/OUT/" + finYear + "/";
+                prefix = "SIHF-I/OUT/" + finYear + "/";
                 serial = NEXT_OUTWARD_SERIAL;
             } else if (entryType === "ISSUE") {
-                prefix = "SIHF-II/ISSUE/" + finYear + "/";
+                prefix = "SIHF-I/ISSUE/" + finYear + "/";
                 serial = NEXT_ISSUE_SERIAL;
             }
             document.getElementById('outSerialField').value = serial;
