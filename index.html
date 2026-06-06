@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5.0, user-scalable=yes">
-    <title>SIHF-II - Store Tracker</title>
+    <title>SIHF-I - Store Tracker</title>
     <style>
         :root {
             --primary-gradient: linear-gradient(180deg, #0d5c53 0%, #083e38 100%);
@@ -2310,11 +2310,17 @@
             CURRENT_SUBMIT_CONTEXT = "INWARD";
 
             // ── GST = 0 check: require Edit Password authorization ──
+            // v9.0.1: Only INWARD enforces the GST-0 gate. INWARD NB is non-billable
+            //         by design, so 0% GST is the expected case and needs no override.
+            // v9.0.2: Supplier "SIHF-I" is intra-group transfer → 0% GST is legitimate,
+            //         so it bypasses the gate even on INWARD.
             const entryType = (document.getElementById('entryTypeSelect').value || '').toUpperCase();
             const taxRaw    = document.getElementById('totalTaxAmount').innerText || '0';
             const totalTax  = parseFloat(taxRaw.replace(/[^0-9.-]/g, '')) || 0;
+            const supplier  = (document.getElementById('supplierName').value || '').trim().toUpperCase();
+            const isSihfI   = (supplier === 'SARV INDIA HOME FURNISHING (UNIT-I)');
 
-            if ((entryType === 'INWARD' || entryType === 'INWARD NB') && totalTax === 0) {
+            if (entryType === 'INWARD' && totalTax === 0 && !isSihfI) {
                 // Show Edit Password gate
                 openGstZeroAuthModal();
                 return;
